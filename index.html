@@ -1,0 +1,57 @@
+<html ng-app = "materialApp">
+<head>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Angular Material style sheet -->
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+  <script type="text/javascript" src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+  <script type="text/javascript" src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>
+  
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+  <!-- Angular Material Library -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+  
+  <!-- Your application bootstrap  -->
+  <script type="text/javascript" src = 'controllers.js'>    
+    /**
+     * You must include the dependency on 'ngMaterial' 
+     */
+    
+  </script>
+  <title>Material Angular</title>
+</head>
+<body layout = "column" ng-controller = "sidenavcontroller">
+  <md-toolbar layout = "row">
+    <md-button hide-gt-sm ng-click="navDrawer()" angular-aria = "" aria-label = "">
+      <img src = "http://atayeshe.com/wp-content/uploads/2016/03/iconmonstr-menu-6-icon-256.png" height="50" width="50">
+    </md-button>
+    <h2 layout-padding>UserApp</h2>
+  </md-toolbar>
+  <div layout = "row" ng-controller = "logicController">
+    <md-sidenav style="overflow: auto;" md-component-id="left" style="height: 100%;" md-is-locked-open="$mdMedia('gt-sm')" flex class = "md-whiteframe-z2">
+      
+
+        <input type="text" ng-model="user.name" placeholder = "search" layout-padding >
+      
+      <md-list>
+       <md-list-item class="md-2-line" ng-repeat="d in dataset | filter: {name: user.name}" layout-padding>
+       <md-button layout = "row" ng-click="changeUser($index); navDrawer()">
+        <img src="{{d.img}}" height = "50" width = "50" layout-padding alt="image">
+        <p layout-padding> {{d.name}}</p>
+      </md-button> 
+       </md-list-item>
+
+      </md-list>
+    </md-sidenav>
+    
+
+    <md-content layout-padding flex>
+     <div ng-view>
+     </div>
+    </md-content>
+  
+  </div>
+</body>
+</html>
