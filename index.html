@@ -23,12 +23,18 @@
   <title>Material Angular</title>
 </head>
 <body layout = "column" ng-controller = "sidenavcontroller">
-  <md-toolbar layout = "row">
+  <md-toolbar layout = "row" md-scroll-shrink md-shrink-speed-factor="0.5">
     <md-button hide-gt-sm ng-click="navDrawer()" angular-aria = "" aria-label = "">
       <img src = "http://atayeshe.com/wp-content/uploads/2016/03/iconmonstr-menu-6-icon-256.png" height="50" width="50">
     </md-button>
-    <h2 layout-padding>UserApp</h2>
+    <h2 layout-padding flex = "100" layout-align="center center" style="min-height: 50px">UserApp</h2>
+    <md-button angular-aria = "" aria-label = "">
+      <img ng-controller="dialogController" src = "https://cdn3.iconfinder.com/data/icons/musthave/128/Add.png" height="50" width="50" ng-click="openDialog($event)">
+    </md-button>
   </md-toolbar>
+
+
+  
   <div layout = "row" ng-controller = "logicController">
     <md-sidenav style="overflow: auto;" md-component-id="left" style="height: 100%;" md-is-locked-open="$mdMedia('gt-sm')" flex class = "md-whiteframe-z2">
       
@@ -51,7 +57,7 @@
      <div ng-view>
      </div>
     </md-content>
-  
+
   </div>
 </body>
 </html>
