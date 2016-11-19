@@ -23,11 +23,12 @@
   <title>Material Angular</title>
 </head>
 <body layout = "column" ng-controller = "sidenavcontroller">
-  <md-toolbar layout = "row" md-scroll-shrink md-shrink-speed-factor="0.5">
+  <md-toolbar layout = "row" md-scroll-shrink md-shrink-speed-factor="0.5" style="min-height: 70px">
     <md-button hide-gt-sm ng-click="navDrawer()" angular-aria = "" aria-label = "">
       <img src = "http://atayeshe.com/wp-content/uploads/2016/03/iconmonstr-menu-6-icon-256.png" height="50" width="50">
     </md-button>
-    <h2 layout-padding flex = "100" layout-align="center center" style="min-height: 50px">UserApp</h2>
+   <!--  <h2 layout-padding flex = "100" layout-align="center">UserApp</h2>-->
+   <span layout-padding flex = "100" layout-align="center"><font size="5">UserApp</font></span>
     <md-button angular-aria = "" aria-label = "">
       <img ng-controller="dialogController" src = "https://cdn3.iconfinder.com/data/icons/musthave/128/Add.png" height="50" width="50" ng-click="openDialog($event)">
     </md-button>
@@ -42,11 +43,12 @@
         <input type="text" ng-model="user.name" placeholder = "search" layout-padding >
       
       <md-list>
-       <md-list-item class="md-2-line" ng-repeat="d in dataset | filter: {name: user.name}" layout-padding>
-       <md-button layout = "row" ng-click="changeUser($index); navDrawer()">
-        <img src="{{d.img}}" height = "50" width = "50" layout-padding alt="image">
+       <md-list-item class="md-2-line" ng-repeat="d in dataset | filter: {name: user.name}">
+       <md-button layout = "row" ng-click="changeUser($index); navDrawer()" flex>
+        <img flex="2" src="{{d.img}}" height = "50" width = "50"  alt="image">
         <p layout-padding> {{d.name}}</p>
-      </md-button> 
+      </md-button>
+      <md-divider></md-divider> 
        </md-list-item>
 
       </md-list>

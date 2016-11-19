@@ -3,12 +3,20 @@
  <form layout-padding action = "" method = "POST" style = "overflow: auto;">
  	<md-input-container>
  		<label>Username</label>
- 		<input type="text" ng-model="user.name">
+ 		<input type="text" ng-model="user.name" name = "user.name" required>
+     <div ng-messages="user.name.$error">
+      <div ng-message="required">Username is necessary</div>
+    </div>
  	</md-input-container>
  	<md-input-container>
  		<label>Image Link</label>
- 		<input type="text" ng-model="user.image">
+ 		<input type="text" ng-model="user.image" name = "user.image" required>
+    <div ng-messages = "user.image.$error">
+      <div ng-message="required">
+        Image link required!!
+      </div>
+    </div>
  	</md-input-container><br>
- 	<md-button ng-click = "addUser()">Add User</md-button>
+ 	<md-button ng-click = "addUser();">Add User</md-button>
  </form>
 </div>
